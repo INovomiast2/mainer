@@ -6,7 +6,7 @@
 #    By: ivnovomi <ivnovomi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 05:59:45 by ivnovomi          #+#    #+#              #
-#    Updated: 2023/09/29 18:52:52 by ivnovomi         ###   ########.fr        #
+#    Updated: 2023/09/30 19:14:44 by ivnovomi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,11 @@ def mainer():
         if os.path.exists(os.getcwd() + "/libft/"):
             # Get all the test files inside the mains folder
             test_files = [f for f in os.listdir(f'{os.getcwd()}/mainer.py/mains') if f.startswith('test_') and f.endswith('.c')]
-            print(test_files)
+            #TODO: With the test files we need to compile them with the functions inside libft
+            #! And then run them to check if they work
+            #? Maybe we can use the subprocess module to run the files
+            #? and then check the output with the functions inside libft
+            #? and then print the result (In a fancy whay of course).
             
         
             
