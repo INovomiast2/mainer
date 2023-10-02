@@ -26,8 +26,10 @@ echo "${GREEN}Installing Mainer...${NC}"
 #   echo "${RED}Pip3 is not installed!${NC}"
 #   exit 1
 # fi
+
+
 # Install all the python3 dependencies
-pip3 install -r ~/.mainer/requirements.txt
+pip3 install -r ./utils/requirements.txt
 # When all the requirements are installed, add alias to .zshrc
 if [ $? -eq 0 ]; then
   echo "${GREEN}Mainer installed!${NC}"
