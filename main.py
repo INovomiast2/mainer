@@ -6,7 +6,7 @@
 #    By: ivnovomi <ivnovomi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 05:59:45 by ivnovomi          #+#    #+#              #
-#    Updated: 2023/10/02 07:57:24 by ivnovomi         ###   ########.fr        #
+#    Updated: 2023/10/02 13:14:15 by ivnovomi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,12 @@ def mainer():
             # Prompt the user if they want to compile the testfiles with their respective functions
             compile = input("Do you want to compile all the testfiles?[y/n]: ")
             if compile == "y" or compile == "Y":
-                print("Compiling all test files!")
+                print(Fore.YELLOW + "[INFO]: " + Fore.RESET + "Compiling all test files...")
+                # Now we need to compile all the test_functionname.c files with the functions inside libft.
+                #? This is the part where i need to think how to do it
+                #? I think i need to create a list with all the functions inside libft and then compile the test files with the functions inside the list
+                #? And read the function files so we know if we need to compile other functions inside the function files
+                #! MAKE IT AT HOME!
             elif compile == "n" or compile == "N":
                 os.system("clear" or "cls")
                 print(Fore.RED + "[EXIT]: " + Fore.RESET + "Exiting mainer...")

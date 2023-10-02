@@ -39,3 +39,7 @@ if [ $? -eq 0 ]; then
 else
   echo "${RED}Mainer installation failed!${NC}"
 fi
+
+
+#! FINISH THIS SCRIPT AT HOME!
+#? Add alias to .zshrc
