@@ -6,7 +6,7 @@
 #    By: ivnovomi <ivnovomi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 05:59:45 by ivnovomi          #+#    #+#              #
-#    Updated: 2023/10/02 07:32:32 by ivnovomi         ###   ########.fr        #
+#    Updated: 2023/10/02 07:57:24 by ivnovomi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,18 +90,18 @@ def mainer():
         # Check if the files with the test_*.c pattern exists
         files = [f for f in os.listdir(f'{os.getcwd()}/libft') if f.startswith('ft_') and f.endswith('.c')]
         for f in files:
-            if not os.path.isfile(f"{os.getcwd()}/mainer.py/mains/test_{f.split('_')[1].split('.')[0]}.c"):
+            if not os.path.isfile(f"{os.getcwd()}/mains/test_{f.split('_')[1].split('.')[0]}.c"):
                 print(Fore.YELLOW + "[INFO]: " + Fore.RESET + f"Creating test_{f.split('_')[1].split('.')[0]}.c")
                 # Split the name of the function to just functionname without the ft_ and the .c
                 function_name = f.split('_')[1].split('.')[0]
                 # Now we add the test_ and .c to the function name
                 modified_name = f'test_{function_name}.c'
                 # And we create the files with the modified name inside the mains folder
-                os.system(f'touch {os.getcwd()}/mainer.py/mains/{modified_name}')
-                with open(f'{os.getcwd()}/mainer.py/mains/{modified_name}', 'w') as file:
+                os.system(f'touch {os.getcwd()}/mains/{modified_name}')
+                with open(f'{os.getcwd()}/mains/{modified_name}', 'w') as file:
                     file.write(f'#include "libft.h"\n\nint\t\tmain(void)\n{{\n\treturn (0);\n}}')
                     file.close()
-                if len(os.listdir(f'{os.getcwd()}/mainer.py/mains')) == len(files):
+                if len(os.listdir(f'{os.getcwd()}/mains')) == len(files):
                     os.system('clear' or 'cls')
                     print("Mainer v.1.0 - Developed by ivnovomi<intra.42.fr> - (c) 2023")
                     print("============================================================")
@@ -122,8 +122,17 @@ def mainer():
         # First we need to check if the mains folder exists
         if os.path.exists(os.getcwd() + "/libft/"):
             # Get all the test files inside the mains folder
-            test_files = [f for f in os.listdir(f'{os.getcwd()}/mainer.py/mains') if f.startswith('test_') and f.endswith('.c')]
-            print(test_files)
+            test_files = [f for f in os.listdir(f'{os.getcwd()}/mains') if f.startswith('test_') and f.endswith('.c')]
+            # Prompt the user if they want to compile the testfiles with their respective functions
+            compile = input("Do you want to compile all the testfiles?[y/n]: ")
+            if compile == "y" or compile == "Y":
+                print("Compiling all test files!")
+            elif compile == "n" or compile == "N":
+                os.system("clear" or "cls")
+                print(Fore.RED + "[EXIT]: " + Fore.RESET + "Exiting mainer...")
+                time.sleep(1)
+                os.system("clear" or "cls")
+                sys.exit(0)
             
         
             
@@ -134,7 +143,7 @@ if __name__ == '__main__':
         print("Mainer Remove Tests v.1.0 - Developed by ivnovomi<intra.42.fr> - (c) 2023")
         print("=========================================================================")
         time.sleep(2)
-        os.system(f'rm -rf {os.getcwd()}/mainer.py/mains/test_*.c')
+        os.system(f'rm -rf {os.getcwd()}/mains/test_*.c')
         print(Fore.GREEN + "[STATUS]: " + Fore.RESET + "All test files removed!")
         time.sleep(2)
         os.system('clear' or 'cls')
