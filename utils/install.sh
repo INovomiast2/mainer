@@ -43,3 +43,4 @@ fi
 
 #! FINISH THIS SCRIPT AT HOME!
 #? Add alias to .zshrc
+#* FINISHED!

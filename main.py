@@ -6,7 +6,7 @@
 #    By: ivnovomi <ivnovomi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 05:59:45 by ivnovomi          #+#    #+#              #
-#    Updated: 2023/10/02 13:14:15 by ivnovomi         ###   ########.fr        #
+#    Updated: 2023/10/04 13:46:53 by ivnovomi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,11 +127,25 @@ def mainer():
             compile = input("Do you want to compile all the testfiles?[y/n]: ")
             if compile == "y" or compile == "Y":
                 print(Fore.YELLOW + "[INFO]: " + Fore.RESET + "Compiling all test files...")
-                # Now we need to compile all the test_functionname.c files with the functions inside libft.
-                #? This is the part where i need to think how to do it
-                #? I think i need to create a list with all the functions inside libft and then compile the test files with the functions inside the list
-                #? And read the function files so we know if we need to compile other functions inside the function files
-                #! MAKE IT AT HOME!
+                functions = os.listdir(f'{os.getcwd()}/libft/')
+                test_files = os.listdir(f'{os.getcwd()}/mains/')
+                # Split names of functions and test_files, and if the function name is equal to the test_file name
+                # compile the test_file with the function inside libft
+                fname = [f.split('_')[1].split('.')[0] for f in functions if '_' in f]
+                tname = [t.split('_')[1].split('.')[0] for t in test_files if '_' in t]
+                print(Fore.GREEN + "[STATUS]: " + Fore.RESET + "Compiling all test files...")
+                print("============================================================")
+                print(fname)
+                print(tname)
+                # If the fname == tname compile the test_file with the function inside libft
+                if len(fname) == len(tname):
+                    for f in functions:
+                        for t in test_files:
+                            if f.split('_')[1].split('.')[0] == t.split('_')[1].split('.')[0]:
+                                os.system(f'gcc -Wall -Wextra -Werror -I libft/ -o {os.getcwd()}/mains/{t.split(".")[0]} {os.getcwd()}/mains/{t} {os.getcwd()}/libft/{f}')
+                                print(Fore.GREEN + "[STATUS]: " + Fore.RESET + f"Compiled {t} with {f}")
+                                time.sleep(0.5)
+                
             elif compile == "n" or compile == "N":
                 os.system("clear" or "cls")
                 print(Fore.RED + "[EXIT]: " + Fore.RESET + "Exiting mainer...")
