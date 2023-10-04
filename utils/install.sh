@@ -8,7 +8,7 @@ NC='\033[0m'
 
 # Check if alias is already set for mainer
 if grep -q "alias mainer" ~/.zshrc; then
-  echo "${RED}Mainer is already installed!${NC}"
+  echo "${GREEN}Mainer is already installed!${NC}"
   exit 1
 fi
 
@@ -29,11 +29,11 @@ echo "${GREEN}Installing Mainer...${NC}"
 
 
 # Install all the python3 dependencies
-pip3 install -r ./utils/requirements.txt
+pip3 install -r ~/.mainer/utils/requirements.txt
 # When all the requirements are installed, add alias to .zshrc
 if [ $? -eq 0 ]; then
   echo "${GREEN}Mainer installed!${NC}"
-  echo "alias mainer='python3 ~/.mainer/mainer.py'" >> ~/.zshrc
+  echo "alias mainer='python3 ~/.mainer/main.py'" >> ~/.zshrc
   echo "${GREEN}Mainer alias added!${NC}"
   echo "${GREEN}Mainer is ready to use!${NC}"
 else
