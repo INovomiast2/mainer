@@ -6,7 +6,7 @@
 #    By: ivnovomi <ivnovomi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/28 05:59:45 by ivnovomi          #+#    #+#              #
-#    Updated: 2023/10/04 13:46:53 by ivnovomi         ###   ########.fr        #
+#    Updated: 2023/10/10 10:44:45 by ivnovomi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -162,7 +162,7 @@ if __name__ == '__main__':
         print("Mainer Remove Tests v.1.0 - Developed by ivnovomi<intra.42.fr> - (c) 2023")
         print("=========================================================================")
         time.sleep(2)
-        os.system(f'rm -rf {os.getcwd()}/mains/test_*.c')
+        os.system(f'rm -rf {os.getcwd()}/mains')
         print(Fore.GREEN + "[STATUS]: " + Fore.RESET + "All test files removed!")
         time.sleep(2)
         os.system('clear' or 'cls')
