@@ -13,7 +13,7 @@ if grep -q "alias mainer" ~/.zshrc; then
 fi
 
 echo "${GREEN}Downloading Mainer...${NC}"
-git clone https://github.com/INovomiast2/mainer.git ~/.mainer
+git clone https://github.com/INovomiast2/mainer.git $HOME/.mainer
 echo "${GREEN}Mainer downloaded!${NC}"
 echo "${GREEN}Installing Mainer...${NC}"
 # Check if python3 is installed
